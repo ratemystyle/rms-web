@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<Header />
+	<main>
+		<section>
+			<img class="hero" src="/hero.png" alt="HERO">
+		</section>
+		<section>
+		</section>
+		<section>
+		</section>
+		<section>
+		</section>
+		<section>
+		</section>
+		<section>
+		</section>
+		<section>
+		</section>
+		<section>
+		</section>
+	</main>
+		
+</Layout>
+
+<style>
+	main {
+		height: 100vh;\]
+
+	}
+	section {
+		height: calc(100vh - 20%);
+		background-color: #EBEBEB;
+	}
+	section:nth-child(2n) {
+		background-color: #F2F2F2;
+	}
+	.hero {
+		width: 100%;
+		height: 100%;
+	}
+</style>

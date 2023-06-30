@@ -1,0 +1,52 @@
+---
+const links = [
+    {
+        name: 'Home',
+        link: '/home'
+    },
+    {
+        name: 'About',
+        link: '/about'
+    },
+    {
+        name: 'Contact us',
+        link: '/contact'
+    }
+]
+---
+
+<header>
+    <img class="logo" src="/public/rms-logo.svg" alt="RMS">
+    <ul>
+        {links.map(link => <li>{link.name}</li>)}
+    </ul>
+</header>
+
+<style>
+    header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 20%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #96C3CA;
+    }
+    ul {
+        font-size: 2rem;
+        display: flex;
+        gap: 12rem;
+        list-style-type: none;
+        padding-right: 12rem;
+    }
+    li {
+        cursor: pointer;
+    }
+    li:hover {
+        color: white;
+    }
+    .logo {
+        height: 100%;
+    }
+</style>
