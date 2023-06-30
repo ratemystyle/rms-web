@@ -1,46 +1,160 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+
+
+const sections = [
+	{
+		header: 'DIE NEUE FASHION APP',
+		subHeader: 'Wie funktioniert Rate my Style? Wir erklären es dir in wenigen Schritten!',
+		text: 'In Rate My Style hast du die Möglichkeit anonym deinen Style von anderen Nutzer:innen bewerten zu lassen und zu vermarkten. Gleichzeitig kannst du durch den Content der Community Inspirationen für deinen eigenen Modestil finden. Wie Rate My Style genau funktioniert, erklären wir dir auf den nächsten Seiten!',
+		img: '/mockup.png'
+	},
+	{
+		header: 'BEWERTE OUTFITS',
+		subHeader: 'Lass dich nach deinem Geschmack inspirieren!',
+		text: 'In Rate my Style werden dir Styles von anderen Nutzer:innen der App vorgeschlagen. Ist das Outfit nach deinem Geschmack, swipest du es nach rechts, andernfalls nach links. Im Laufe der Zeit erkennen unsere Algorithmen deine Vorlieben und schlagen dir Styles vor, die perfekt auf deine Vorlieben zugeschnitten sind.',
+		img: '/mockup.png'
+	},
+	{
+		header: 'IDENTIFIZIERE KLEIDUNGSSTÜCKE',
+		subHeader: 'Das Outfit willst du haben? Bekommst du!',
+		text: 'Auf jedem Style können die getragenen Kleidungsartikel zu der Website des Online-Händlers verlinkt werden. Somit kannst du sehen, wo die einzelnen Kleidungsstücke gekauft wurde. Gefällt dir ein Artikel besonders gut, drückst du einfach auf den Button und wirst direkt zum Onlineshop weitergeleitet.',
+		img: '/mockup.png'
+	},
+	{
+		header: 'FILTERE NACH OUTFITS',
+		subHeader: 'Ein Kleid zum Ausgehen? Wie wäre es mit diesem!',
+		text: 'Suchst du nach bestimmten Artikeln, wie beispielsweise einem Kleid, oder möchtest dich für ein Outfit für das nächste Dinner inspirieren lassen, kannst du Einstellungen im Filter vornehmen. Dir werden anschließend nur noch Styles zum Bewerten vorgeschlagen, die deinen Filtereinstellungen entsprechen.',
+		img: '/mockup.png'
+	},
+	{
+		header: 'FINDE DIE NEUSTEN TRENDS',
+		subHeader: 'Wie sieht die Mode von morgen wirklich aus? Wir zeigen es dir!',
+		text: 'Anhand der Bewertungen aller Nutzer:innen der App erkennen wir die Styles, die besonders beliebt sind. Jede Woche werden die besten 100 Styles in der Kategorie TopStyles angezeigt. Somit bekommst du eine aktuelle Übersicht über neue Trends und die beliebtesten Outfits, die wirklich getragen werden.',
+		img: '/mockup.png'
+	},
+	{
+		header: 'BESTIMME DIE MODE VON MORGEN',
+		subHeader: 'Du wolltest deinen Style schon immer mal bewerten lassen? Es geht ganz einfach!',
+		text: 'Möchtest du selbst deinen Style bewerten lassen und die Trends von morgen mitbestimmen, kannst du ein Foto von dir in deinem Outfit hochladen. Das Bild wird anschließend von uns automatisch anonymisiert, um den Fokus einzig auf deinen Style zu lenken. Wie die anderen Nutzer:innen auch kannst auch du Kleidungsstücke des Online-Händlers verlinken. Dazu öffnest du ganz einfach die Website des Online-Händlers, suchst den Artikel und fügst den Link zu deinem Bild hinzu.',
+		img: '/mockup.png'
+	},
+	{
+		header: 'Dein toller Style wird belohnt',
+		subHeader: 'Deine Styles kommen gut an? Dann verdienst du Geld!',
+		text: 'Sollten anderen Nutzer:innen deine Styles gefallen, können diese mit Hilfe deiner Verlinkung zum Online-Shop des Anbieters gelangen. Sollten sie den Artikel anschließend kaufen, wir dir ein Teil des Kaufpreises gutgeschrieben. Somit kannst du durch jeden verkauften Artikel mit Hilfe deiner Styles Geld verdienen.',
+		img: '/mockup.png'
+	},
+];
+const downloads = [
+	{
+		name: 'iOS',
+		link: '',
+		img: '/download-ios.png'
+	},
+	{
+		name: 'Android',
+		link: '',
+		img: '/download-android.png'
+	}
+]
+	
 ---
 
-<Layout title="Welcome to Astro.">
-	<Header />
+<Layout title="Rate My Style">
 	<main>
-		<section>
-			<img class="hero" src="/hero.png" alt="HERO">
-		</section>
-		<section>
-		</section>
-		<section>
-		</section>
-		<section>
-		</section>
-		<section>
-		</section>
-		<section>
-		</section>
-		<section>
-		</section>
-		<section>
-		</section>
+		<div id="hero">
+			<div class="hero_containerText">
+				<div class="hero_header">Rate My Style</div>
+				<div class="hero_subHeader">Setze neue Fashion Trends & lass dich inspirieren!</div>
+			</div>
+			<div class="hero_containerDownload">
+				<h3 class="hero_containerDownload_text">Bald verfügbar</h3>
+				{downloads.map(download =>
+					<img src={download.img} alt={download.name} class="hero_containerDownload_download" />
+				)}
+			</div>
+		</div>
+		{sections.map(section => 
+			<section>
+				<div class="mockupContainer">
+					<img src={section.img} alt="mockup" class="mockup" />
+				</div>
+				<div class="description">
+					<h1>{section.header}</h1>
+					<h3>{section.subHeader}</h3>
+					<p>{section.text}</p>	
+				</div>
+			</section>
+		)}
 	</main>
-		
 </Layout>
 
 <style>
-	main {
-		height: 100vh;\]
-
-	}
 	section {
-		height: calc(100vh - 20%);
+		height: calc(100vh - 30vh);
 		background-color: #EBEBEB;
+		padding: 6vh 6vw;
+
+		display: flex;
+		justify-content: center;
+		gap: 12rem;
 	}
 	section:nth-child(2n) {
 		background-color: #F2F2F2;
+
+		justify-content: flex-end;
+		flex-direction: row-reverse;
 	}
-	.hero {
-		width: 100%;
-		height: 100%;
+	#hero {
+		background-image: url('/hero.png');
+		background-size: cover;
+		background-position: center;
+		height: calc(100vh - 15vh);
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		color: white;
+
+		position: relative;
+	}
+	.hero_containerText {
+		padding: 0 0 12rem 8rem;
+	}
+	.hero_header {
+		font-size:6rem;
+	}
+	.hero_subHeader {
+		font-size:3rem;
+	}
+	.hero_containerDownload {
+		position: absolute;
+		bottom: 8vh;
+		right: 8vw;
+	}
+	.hero_containerDownload_text {
+		text-align: center;
+	}
+	.hero_containerDownload_download {
+		height: 4rem;
+		width: 14rem;
+
+		cursor: pointer;
+	}
+	h1 {
+		margin-top: 0;
+	}
+	.description {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.mockupContainer {
+		display: flex;
+    	align-items: center;
+	}
+	.mockup {
+		height: 80%;
 	}
 </style>
