@@ -1,0 +1,25 @@
+/* Standard-Schriftgröße für sehr kleine Geräte */
+html {
+  font-size: 16px;
+}
+
+/* Geräte mit einer Mindestbreite von 600px (z. B. Hochformat-Tablets) */
+@media screen and (min-width: 600px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+/* Geräte mit einer Mindestbreite von 768px (z. B. Querformat-Tablets) */
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+/* Geräte mit einer Mindestbreite von 1024px (z. B. Laptops, Desktops) */
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 22px;
+  }
+}

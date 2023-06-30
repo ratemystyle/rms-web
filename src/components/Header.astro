@@ -17,16 +17,25 @@ const links = [
 
 <header>
     <img class="logo" src="/rms-logo.svg" alt="RMS">
-    <ul>
+    <ul class="navigation">
         {links.map(link => 
             <li>
                 <a href={link.link}>{link.name}</a>
             </li>
         )}
     </ul>
+    <div class="burgerMenu">
+        X
+    </div>
 </header>
 
 <style>
+    .navigation {
+        display: none;
+    }
+    .burgerMenu {
+        display: block;
+    }
     header {
         position: sticky;
         top: 0;
