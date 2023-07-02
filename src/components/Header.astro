@@ -12,29 +12,45 @@ const links = [
         name: 'Contact us',
         link: '/contact'
     }
-]
+];
 ---
 
-<header>
+<script>
+    const menuToggle = document.getElementById('burgerMenu');
+    const nav = document.getElementById('navigation');
+
+    menuToggle!.addEventListener('click', () => {
+    if (nav!.style.display !== 'none') {
+        nav!.style.display = 'none';
+    } else {
+        nav!.style.display = 'block';
+    }
+    });
+
+    window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+        nav!.style.display = 'flex';
+    } else {
+        nav!.style.display = 'none';
+    }
+    });
+</script>
+
+<header class="px-8">
     <img class="logo" src="/rms-logo.svg" alt="RMS">
-    <ul class="navigation">
+    <ul id="navigation">
         {links.map(link => 
             <li>
                 <a href={link.link}>{link.name}</a>
             </li>
         )}
     </ul>
-    <div class="burgerMenu">
-        X
-    </div>
+    <div id="burgerMenu">☰</div>
 </header>
 
 <style>
-    .navigation {
+    #navigation {
         display: none;
-    }
-    .burgerMenu {
-        display: block;
     }
     header {
         position: sticky;
@@ -46,13 +62,6 @@ const links = [
         justify-content: space-between;
         align-items: center;
         background-color: #96c3ca;
-    }
-    ul {
-        font-size: 2rem;
-        display: flex;
-        gap: 12rem;
-        list-style-type: none;
-        padding-right: 12rem;
     }
     li {
         cursor: pointer;
@@ -66,5 +75,23 @@ const links = [
     }
     .logo {
         height: 100%;
+    }
+
+    ul#navigation {
+        gap: 12vw;
+    }
+
+    @media (min-width: 768px) {
+        ul#navigation {
+            font-size: 1.5rem;
+            display: flex;
+            
+            list-style-type: none;
+            padding-right: 5%;
+        }
+        div#burgerMenu {
+            display: none;
+            padding-right: 5%;
+        }
     }
 </style>
