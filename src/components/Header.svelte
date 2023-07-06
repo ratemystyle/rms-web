@@ -109,16 +109,26 @@
     }
     #mobileNavigation_menu {
         height: 0vh;
-        transition: height .2s, opacity .32s cubic-bezier(.4,0,.6,1),color .32s cubic-bezier(.4,0,.6,1);
+        transition: height .6s, opacity .32s cubic-bezier(.4,0,.6,1);
         background-color: white;
+        color: white;
         position: fixed;
         top: 0;
         left: 0;
         height: 0;
         width: 100%;
-        overflow: hidden;
+        /* overflow: hidden; */
         opacity: 0;
         padding: 10vh 24px 0 23px;
+    }
+    #mobileNavigation_menu > ul > li > a {
+        color: white;
+        line-height: 1rem;
+        transition: color .6s ease, line-height .6s ease;
+    }
+    #mobileNavigation_menu.active > ul > li > a {
+        color: black;
+        line-height: 4rem;
     }
     #mobileNavigation_menu.active {
         height: 100vh;
