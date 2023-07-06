@@ -118,7 +118,7 @@
         left: 0;
         height: 0;
         width: 100%;
-        /* overflow: hidden; */
+        overflow: hidden;
         opacity: 0;
         padding: 10vh 24px 0 23px;
     }
