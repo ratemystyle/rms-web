@@ -1,6 +1,7 @@
 /* Standard-Schriftgröße für sehr kleine Geräte */
 html {
   font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Geräte mit einer Mindestbreite von 600px (z. B. Hochformat-Tablets) */

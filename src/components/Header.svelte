@@ -56,7 +56,6 @@
             {#each links as link}
             <li>
                 <a 
-                    on:click={() => menuOpen = false}
                     href={link.link}>
                     {link.name}
                 </a>
