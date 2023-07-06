@@ -112,6 +112,7 @@
         transition: height .6s, opacity .32s cubic-bezier(.4,0,.6,1);
         background-color: white;
         color: white;
+        font-weight: 700;
         position: fixed;
         top: 0;
         left: 0;
