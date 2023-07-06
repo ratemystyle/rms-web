@@ -97,24 +97,12 @@ const downloads = [
 <style>
 	section {
 		height: calc(100vh - 30vh);
-		background-color: #EBEBEB;
-		padding: 6vh 6vw;
-
-		display: flex;
-		justify-content: center;
-		gap: 12rem;
-	}
-	section:nth-child(2n) {
-		background-color: #F2F2F2;
-
-		justify-content: flex-end;
-		flex-direction: row-reverse;
 	}
 	#hero {
 		background-image: url('/hero.png');
 		background-size: cover;
 		background-position: center;
-		height: calc(100vh - 15vh);
+		height: calc(100vh - 10vh);
 
 		display: grid;
     	grid-template-rows: 1fr 1fr;
@@ -129,18 +117,18 @@ const downloads = [
 		justify-content: center;
 	}
 	.hero_header {
-		font-size:2rem;
+		font-size:3rem;
 	}
 	.hero_subHeader {
-		font-size:1rem;
+		font-size:1.5rem;
 	}
 	.hero_containerDownload {
 		height: 100%;
 
 		display: flex;
 		flex-direction: column;
-		justify-content: end;
-		align-items: end;
+		justify-content: flex-end;
+		align-items: flex-end;
 	}
 	.hero_containerDownload_text {
 		font-size: 0.8rem;
@@ -152,6 +140,27 @@ const downloads = [
 
 		cursor: pointer;
 	}
+	@media screen and (min-width: 1024px) { 
+	section {
+		height: calc(100vh - 30vh);
+		background-color: #EBEBEB;
+		padding: 6vh 6vw;
+
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		gap: 12rem;
+	}
+	section:nth-child(2n) {
+		background-color: #F2F2F2;
+
+		justify-content: flex-end;
+		flex-direction: row-reverse;
+	}
+	#hero {
+		height: calc(100vh - 15vh);
+	}
+	
 	h1 {
 		margin-top: 0;
 	}
@@ -167,4 +176,5 @@ const downloads = [
 	.mockup {
 		height: 80%;
 	}
+}
 </style>
