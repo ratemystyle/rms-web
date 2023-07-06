@@ -49,7 +49,7 @@
 
 
     <div id="mobileNavigation_btn" role="presentation" class="icon" on:click={() => menuOpen = !menuOpen} on:keypress={() => menuOpen = !menuOpen}>
-        <Fa style="pointer-events: none;" icon={menuOpen ? faXmark : faBars} color="black" />
+        <Fa style="pointer-events: none;" icon={menuOpen ? faXmark : faBars} color={menuOpen ? 'black' : 'white'} />
     </div>
     <div id="mobileNavigation_menu" class:active={menuOpen}>
         <ul id="navigation">
