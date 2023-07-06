@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Fa from 'svelte-fa'
+import { faCircleArrowDown } from '@fortawesome/free-solid-svg-icons'
 
 
 const sections = [
@@ -68,15 +70,18 @@ const downloads = [
 			<div class="hero_containerText">
 				<div class="hero_header">Rate My Style</div>
 				<div class="hero_subHeader">Setze neue Fashion Trends & lass dich inspirieren!</div>
+				<div class="flex flex-row gap-2 pt-4">
+					{downloads.map(download =>
+						<img src={download.img} alt={download.name} class="hero_containerDownload_download" />
+					)}
+				</div>
+				<!-- <div class="bg-main w-36 h-12 p-2 rounded flex items-center border-2 border-white text-white font-bold">Contact us</div> -->
 			</div>
 			<div class="hero_containerDownload">
-				<div>
-					<h3 class="hero_containerDownload_text pb-2">Bald verfügbar</h3>
-					<div class="flex">
-						{downloads.map(download =>
-							<img src={download.img} alt={download.name} class="hero_containerDownload_download" />
-						)}
-					</div>
+				<div class="flex flex-col">
+					<!-- <h3 class="pb-2">oder downloade</h3> -->
+					<div class="pb-5">Learn more</div>
+					<Fa id="arrContainer" icon={faCircleArrowDown} color="white"/>
 				</div>
 			</div>
 		</div>
@@ -129,8 +134,8 @@ const downloads = [
 
 		display: flex;
 		flex-direction: column;
-		/* justify-content: flex-end; */
-		align-items: flex-end;
+		justify-content: flex-end;
+		align-items: center;
 	}
 	.hero_containerDownload_text {
 		font-size: 0.8rem;
@@ -139,9 +144,26 @@ const downloads = [
 	.hero_containerDownload_download {
 		height: 2rem;
 		width: 8rem;
-
 		cursor: pointer;
 	}
+
+	@keyframes moveUpDown {
+		0% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-20px);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+
+	#arrContainer {
+		animation: moveUpDown 2s ease-in-out infinite;
+	}
+
+
 	@media screen and (min-width: 1024px) { 
 	section {
 		height: calc(100vh - 30vh);

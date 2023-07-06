@@ -136,6 +136,7 @@
         width: 100vw;
         opacity: 1;
     }
+    
     #mobileNavigation_menu #navigation {
         display: block;
     }
