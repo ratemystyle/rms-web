@@ -16,13 +16,15 @@
             link: '/contact'
         }
     ];
-    let nav, menuOpen = false;
+    let nav, menuOpen = false, activeLink = 'Home';
+
     onMount(() => {
         nav = document.getElementById('navigation');
-
-        // mobileBtn!.addEventListener('click', () => {
-        //     mobileMenu!.classList.toggle('inactive');
-        // });
+        const pathname = window.location.pathname;
+        const navElements = nav!.getElementsByTagName('a');
+        for (let x = 0; x < navElements.length; x++) {
+            activeLink = links.find(link => link.link === pathname)!.name;
+        }
 
         window.addEventListener('resize', () => {
             if (window.innerWidth >= 768) {
@@ -40,7 +42,9 @@
     <ul id="navigation">
         {#each links as link}
         <li>
-            <a href={link.link}>
+            <a 
+                class:activeLink={link.name === activeLink}
+                href={link.link}>
                 {link.name}
             </a>
         </li>
@@ -55,7 +59,7 @@
         <ul id="navigation">
             {#each links as link}
             <li>
-                <a 
+                <a
                     href={link.link}>
                     {link.name}
                 </a>
@@ -146,6 +150,9 @@
         font-size: 2rem;
         line-height: 4rem;
         width: 100%;
+    }
+    .activeLink {
+        color: white;
     }
 
     @media (min-width: 768px) {
