@@ -91,9 +91,9 @@ const downloads = [
 					<img src={section.img} alt="mockup" class="mockup" />
 				</div>
 				<div class="description">
-					<h1>{section.header}</h1>
-					<h3>{section.subHeader}</h3>
-					<p>{section.text}</p>	
+					<div class="text-xl font-bold">{section.header}</div>
+					<div class="text-lg">{section.subHeader}</div>
+					<div>{section.text}</div>	
 				</div>
 			</section>
 		)}
@@ -102,7 +102,21 @@ const downloads = [
 
 <style>
 	section {
-		height: calc(100vh - 30vh);
+		display: flex;
+		flex-direction: column-reverse;
+	}
+	.description {
+		padding: 2rem;
+	}
+	section:last-child {
+		padding-bottom: env(safe-area-inset-bottom, 0.5vh);;
+	}
+	.mockupContainer {
+		display: flex;
+    	justify-content: center;
+	}
+	.mockup {
+		height: 80vh;
 	}
 	#hero {
 		background-image: url('/hero.png');
@@ -182,7 +196,7 @@ const downloads = [
 		flex-direction: row-reverse;
 	}
 	#hero {
-		height: calc(100vh - 15vh);
+		height: calc(100vh - 20vh);
 	}
 	
 	h1 {
@@ -196,6 +210,8 @@ const downloads = [
 	.mockupContainer {
 		display: flex;
     	align-items: center;
+		height: 100%;
+		width: 100%;
 	}
 	.mockup {
 		height: 80%;
