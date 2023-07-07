@@ -42,7 +42,7 @@ const sections = [
 		img: '/mockup.png'
 	},
 	{
-		header: 'Dein toller Style wird belohnt',
+		header: 'DEIN TOLLER STYLE WIRD BELOHNT',
 		subHeader: 'Deine Styles kommen gut an? Dann verdienst du Geld!',
 		text: 'Sollten anderen Nutzer:innen deine Styles gefallen, können diese mit Hilfe deiner Verlinkung zum Online-Shop des Anbieters gelangen. Sollten sie den Artikel anschließend kaufen, wir dir ein Teil des Kaufpreises gutgeschrieben. Somit kannst du durch jeden verkauften Artikel mit Hilfe deiner Styles Geld verdienen.',
 		img: '/mockup.png'
@@ -70,19 +70,23 @@ const downloads = [
 			<div class="hero_containerText">
 				<div class="hero_header">Rate My Style</div>
 				<div class="hero_subHeader">Setze neue Fashion Trends & lass dich inspirieren!</div>
-				<div class="flex flex-row gap-2 pt-4">
-					{downloads.map(download =>
-						<img src={download.img} alt={download.name} class="hero_containerDownload_download" />
-					)}
-				</div>
 				<!-- <div class="bg-main w-36 h-12 p-2 rounded flex items-center border-2 border-white text-white font-bold">Contact us</div> -->
 			</div>
 			<div class="hero_containerDownload">
-				<div class="flex flex-col">
-					<!-- <h3 class="pb-2">oder downloade</h3> -->
-					<div class="pb-5">Learn more</div>
-					<Fa id="arrContainer" icon={faCircleArrowDown} color="white"/>
+				<div class="hero_containerDownload_container">
+					<div class="hero_containerDownload_text">
+						Coming Soon
+					</div>
+					<div class="flex flex-row gap-2 pt-4">
+						{downloads.map(download =>
+							<img src={download.img} alt={download.name} class="hero_containerDownload_download" />
+						)}
+					</div>
 				</div>
+			</div>
+			<div class="hero_leanrMore">
+				<div class="pb-5">Learn more</div>
+				<Fa id="arrContainer" icon={faCircleArrowDown} color="white"/>
 			</div>
 		</div>
 		{sections.map(section => 
@@ -91,9 +95,9 @@ const downloads = [
 					<img src={section.img} alt="mockup" class="mockup" />
 				</div>
 				<div class="description">
-					<div class="text-xl font-bold">{section.header}</div>
-					<div class="text-lg">{section.subHeader}</div>
-					<div>{section.text}</div>	
+					<div class="text-2xl font-bold">{section.header}</div>
+					<div class="text-xl">{section.subHeader}</div>
+					<div class="pt-3">{section.text}</div>	
 				</div>
 			</section>
 		)}
@@ -104,6 +108,12 @@ const downloads = [
 	section {
 		display: flex;
 		flex-direction: column-reverse;
+		gap: 0;
+		margin: 19px;
+		/* border: 1px solid black; */
+		padding: 10px;
+		background-color: white;
+		border-radius: 30px;
 	}
 	.description {
 		padding: 2rem;
@@ -148,8 +158,9 @@ const downloads = [
 
 		display: flex;
 		flex-direction: column;
-		justify-content: flex-end;
-		align-items: center;
+		justify-content: flex-start;
+		align-items: start;
+		display: none;
 	}
 	.hero_containerDownload_text {
 		font-size: 0.8rem;
@@ -159,6 +170,16 @@ const downloads = [
 		height: 2rem;
 		width: 8rem;
 		cursor: pointer;
+	}
+
+	.hero_leanrMore {
+		position: absolute;
+		bottom: 10vh;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 
 	@keyframes moveUpDown {
@@ -180,14 +201,14 @@ const downloads = [
 
 	@media screen and (min-width: 1024px) { 
 	section {
-		height: calc(100vh - 30vh);
+		height: calc(100vh - 15vh);
 		background-color: #EBEBEB;
 		padding: 6vh 6vw;
 
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
-		gap: 12rem;
+		/* gap: 12rem; */
 	}
 	section:nth-child(2n) {
 		background-color: #F2F2F2;
@@ -196,7 +217,18 @@ const downloads = [
 		flex-direction: row-reverse;
 	}
 	#hero {
-		height: calc(100vh - 20vh);
+		height: calc(100vh - 15vh);
+		padding-left: 6rem;
+		padding-top: 6rem;
+	}
+
+	.hero_containerDownload {
+		height: 100%;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-end;
 	}
 	
 	h1 {
@@ -206,6 +238,7 @@ const downloads = [
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		width: 80%;
 	}
 	.mockupContainer {
 		display: flex;

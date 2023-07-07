@@ -171,7 +171,7 @@
 
     @media screen and (min-width: 1024px) { 
         header {
-            height: 20vh;
+            height: 15vh;
         }
     }
 </style>
