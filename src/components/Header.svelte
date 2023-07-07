@@ -41,7 +41,7 @@
     <img class="logo" src="/rms-logo.svg" alt="RMS">
     <ul id="navigation">
         {#each links as link}
-        <li>
+        <li class="z-10">
             <a 
                 class:activeLink={link.name === activeLink}
                 href={link.link}>
@@ -139,6 +139,7 @@
         height: 100vh;
         width: 100vw;
         opacity: 1;
+        padding-top: 10vh;
     }
     
     #mobileNavigation_menu #navigation {
