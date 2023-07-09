@@ -8,12 +8,8 @@
             link: '/'
         },
         {
-            name: 'About',
-            link: '/about'
-        },
-        {
             name: 'Contact us',
-            link: '/contact'
+            link: 'mailto:info@rate-my-style.com'
         }
     ];
     let nav, menuOpen = false, activeLink = 'Home';
@@ -173,6 +169,9 @@
     @media screen and (min-width: 1024px) { 
         header {
             height: 15vh;
+        }
+        #mobileNavigation_menu {
+            display: none;
         }
     }
 </style>
